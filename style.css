@@ -1,0 +1,456 @@
+/* GLOBAL STYLES */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  line-height: 1.6;
+}
+
+
+/* NAVBAR (Apple-style glass effect) */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(20, 20, 20, 0.7);  /* Transparent dark background */
+  backdrop-filter: blur(12px);        /* Glass blur */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 2rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #9b5de5;
+}
+
+/* HERO */
+#hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #0d0d0d;
+  padding-top: 4rem;
+}
+.hero-content p { color: #aaa; margin-bottom: 0.5rem; }
+.hero-content h1 {
+  font-size: 2.8rem;
+  background: linear-gradient(90deg, #fff, #777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.subtitle { color: #888; }
+
+/* SECTIONS */
+.section { 
+  padding: 5rem 10%; 
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.project img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* SKILLS */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.skills-list li {
+  background: #1a1a1a;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+/* CONTACT */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+form input, form textarea {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+}
+form button {
+  padding: 0.8rem;
+  background: #9b5de5;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+form button:hover { background: #7a3dc0; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #111;
+  color: #777;
+}
+
+/* NAVBAR FADE-IN ANIMATION */
+nav .logo,
+nav ul li {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: navFade 0.8s ease forwards;
+}
+nav .logo { animation-delay: 0.2s; }
+nav ul li:nth-child(1) { animation-delay: 0.4s; }
+nav ul li:nth-child(2) { animation-delay: 0.6s; }
+nav ul li:nth-child(3) { animation-delay: 0.8s; }
+nav ul li:nth-child(4) { animation-delay: 1s; }
+nav ul li:nth-child(5) { animation-delay: 1.2s; }
+nav ul li:nth-child(6) { animation-delay: 1.4s; }
+
+@keyframes navFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* KenZen AI Page */
+body.kenzen {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: #000;
+}
+.navbar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.navbar a:hover { color: #9b5de5; }
+
+/* Hero (KenZen) */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 10px;
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(155, 93, 229, 0.6);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: #9b5de5;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.btn:hover { background: #7a3bd1; }
+
+/* Netflix-style Home */
+body.netflix-home {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #000; /* pure black */
+  color: #fff;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+}
+
+/* Profiles grid */
+.profiles {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 50px;
+}
+
+/* Each profile box */
+.profile {
+  width: 200px;
+  text-decoration: none;
+  color: #aaa;
+  transition: transform 0.3s;
+}
+
+.profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile span {
+  display: block;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.profile:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+.profile:hover span { color: #fff; }
+
+/* Manage profiles text */
+.manage {
+  font-size: 0.9rem;
+  color: gray;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.manage:hover { color: #fff; }
+/* GLOBAL STYLES */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* HOMEPAGE (Netflix-style) */
+body.netflix-home {
+  background-color: #000; /* pure black */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 80px;
+  margin-bottom: 60px;
+  color: #fff;
+}
+
+/* Profiles grid */
+.profiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+/* Each profile */
+.profile {
+  text-align: center;
+  text-decoration: none;
+  color: #aaa;
+  transition: transform 0.3s ease;
+}
+
+.profile img {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile p {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.profile:hover {
+  transform: scale(1.08);
+}
+.profile:hover img {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+.profile:hover p {
+  color: #fff;
+}
+
+/* Manage profiles */
+.manage {
+  font-size: 0.9rem;
+  color: gray;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.manage:hover {
+  color: #fff;
+}
+
+/* ===========================
+   Portfolio Sections Styling
+   =========================== */
+
+.section {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.divider {
+  width: 60%;
+  margin: 10px auto 30px auto;
+  border: 0;
+  border-top: 1px solid #444; /* thin, clean divider line */
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.education-item,
+.experience-item,
+.project-item,
+.skills-list {
+  max-width: 700px;
+  margin: 40px auto;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Skill list clean layout */
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  margin: 8px 0;
+  font-size: 1.05rem;
+}
+
+/* Links inside projects */
+.project-item a {
+  color: #7df0ff;
+  text-decoration: none;
+}
+
+.project-item a:hover {
+  text-decoration: underline;
+}

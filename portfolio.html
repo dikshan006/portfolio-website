@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dikshan Chhikara — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1/bundled/lenis.min.js"></script>
+
+  <script src="script.js" defer></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: #0d0d0d;
+      color: white;
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
+
+    /* Purple fog edges */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      box-shadow: 
+        inset 30px 0 80px rgba(200, 162, 255, 0.25),
+        inset -30px 0 80px rgba(200, 162, 255, 0.25);
+      z-index: 1;
+    }
+
+    /* Section separators */
+    .section.education,
+    .section.experience,
+    .section.projects {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+    }
+
+    /* Hero with parallax background */
+    #hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('images/hero-bg.jpg') center/cover fixed;
+      padding-top: 4rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #fff, #777);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    /* Fade-in sections */
+    .section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating cards for experience/projects */
+    .card {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px) rotateX(3deg) rotateY(3deg);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <h2 class="logo">Dikshan Chhikara</h2>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <p>Hi, I'm Dikshan</p>
+      <h1>A Tennis Player & CS major<br />New York</h1>
+      <p class="subtitle">Computer Science student • NCAA Athlete • Aspiring Data Analyst</p>
+      <div class="scroll-down">&#8595;</div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+<section id="education" class="section">
+  <h2>Education</h2>
+  <hr class="divider">
+
+  <div class="education-item">
+    <h3>Luther College — B.A. in Computer Science</h3>
+    <p><em>2025 – Present</em></p>
+    <p>Building strong foundations in software development, AI systems, automation, and data analytics. NCAA Tennis athlete.</p>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <h2>Work Experience</h2>
+  <hr class="divider">
+
+  <div class="experience-item">
+    <h3>Investment Analyst — The Fund (Drew University)</h3>
+    <p><em>Oct 2024 – May 2025</em></p>
+    <p>Conducted equity research, delivered investment pitches, and helped manage a $60,000+ student-led portfolio using Excel, SQL, and valuation models.</p>
+  </div>
+
+  <div class="experience-item">
+    <h3>Founder — KenZen AI</h3>
+    <p><em>2025 – Present</em></p>
+    <p>Building AI automation tools, chat agents, and workflow systems for small businesses. Developed and deployed the full-stack KenZen AI platform using Next.js, OpenAI, and Vercel.</p>
+  </div>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <hr class="divider">
+
+  <div class="project-item">
+    <h3>KenZen AI — Automation Platform</h3>
+    <p><em>2025</em></p>
+    <p>Full-stack AI automation website with real LLM agent, branded UI, and business automation demos. Built with Next.js, TypeScript, Tailwind, and OpenAI. Deployed on Vercel with custom domain (kenzenai.com).</p>
+    <p><strong>Live:</strong> <a href="https://kenzenai.com">kenzenai.com</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/dikshan006/kenzen-ai">github.com/dikshan006/kenzen-ai</a></p>
+  </div>
+
+  <div class="project-item">
+    <h3>Netflix-Style Portfolio Website</h3>
+    <p><em>2025</em></p>
+    <p>A modern interactive portfolio styled like Netflix, featuring project tiles and clean navigation. Fully responsive and deployed on Vercel.</p>
+  </div>
+
+  <div class="project-item">
+    <h3>KenZen AI Finance Dashboard (Streamlit)</h3>
+    <p><em>2025</em></p>
+    <p>Built a personal finance analytics dashboard with AI-generated insights, category spending charts, savings forecasts, and anomaly detection using Pandas & Plotly.</p>
+    <p><strong>Live App:</strong> <a href="https://kenzen-finance.streamlit.app/">streamlit.app</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/dikshan006/kenzen-ai-finance-dashboard">github.com/dikshan006/kenzen-ai-finance-dashboard</a></p>
+  </div>
+
+  <div class="project-item">
+    <h3> JP Morgan Software Engineering Job Simulation— Forage</h3>
+    <p><em>2025</em></p>
+    <p>Completed tasks on REST APIs, Kafka integration, H2 database setup, and backend architecture. Verification: WDthxoHxTMnZbRoog.</p>
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <hr class="divider">
+
+  <ul class="skills-list">
+    <li>Python · Java · JavaScript · TypeScript</li>
+    <li>Next.js · React · Streamlit · Tailwind CSS</li>
+    <li>OpenAI API · AI Agents · Automation Systems</li>
+    <li>SQL · Pandas · Plotly · Data Analysis</li>
+    <li>Financial Modeling · Equity Research</li>
+    <li>Deployment: Vercel · Streamlit Cloud · Git/GitHub</li>
+  </ul>
+</section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2>Get in Touch</h2>
+    <p>Connect with me on 
+      <a href="https://www.linkedin.com/in/dikshanchhikara" 
+         target="_blank" style="color:#a78bfa; text-decoration:none;">
+        LinkedIn
+      </a>
+    </p>
+    <form action="mailto:dikshantennis2006@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" rows="4" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Dikshan Chhikara. All rights reserved.</p>
+  </footer>
+</body>
+</html>
